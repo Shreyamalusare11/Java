@@ -1,0 +1,26 @@
+import java.util.*;
+
+public class Transactions {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Ask the user for the balance
+        System.out.print("Enter current balance: ");
+        int balance = scanner.nextInt();
+
+        // Ask the user for the transaction amount
+        System.out.print("Enter transaction amount: ");
+        int transactionAmount = scanner.nextInt();
+
+        // Check if the transaction can be processed
+        if (balance >= transactionAmount) {
+            balance -= transactionAmount;
+            System.out.println("Transaction Successful");
+            System.out.println("Remaining Balance: " + balance);
+        } else {
+            System.out.println("Transaction Unsuccessful - Insufficient Balance");
+        }
+
+        scanner.close(); 
+    }
+}
