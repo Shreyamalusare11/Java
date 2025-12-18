@@ -1,0 +1,34 @@
+import java.util.*;
+import java.util.Stack;
+
+public class Main{
+    public static int evaluatePostfix(String exp) {
+         Stack<Integer> Stack = new Stack<>();
+         
+         for (char ch :exp.toCharArray()){
+             if(Character.isDigit(ch)){
+                Stack.push(ch - '0');
+             }else{
+                 int a = Stack.pop();
+                 int b = Stack.pop();
+                 switch (ch){
+                 
+                 case '+':Stack.push(a+b); break;
+                 case '-':Stack.push(a-b); break;
+                 case '*':Stack.push(a*b); break;
+                 case '/':Stack.push(a/b); break;
+             }
+         }
+    }
+    return Stack.pop();
+}
+public static void main(String[]args){
+    Scanner sc = new Scanner(System.in);
+    String exp= sc.nextLine();
+    System.out.print("Postfix Expression: " + exp);
+    System.out.print("Result: " +evaluatePostfix(exp));
+    
+    sc.close();
+}
+}
+
